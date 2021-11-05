@@ -13,3 +13,7 @@
 # limitations under the License.
 
 homepage: "https://www.criteo.com/"
+documentation: "https://github.com/criteo/gtm-criteo-loader/blob/master/README.md"
+versions:
+  - sha: faf167d26e540e48a022615cbd98e3bc4505dd3d
+    changeNotes: Initial release
