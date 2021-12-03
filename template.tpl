@@ -61,7 +61,7 @@ ___TEMPLATE_PARAMETERS___
         "name": "partnerId",
         "displayName": "Partner ID",
         "simpleValueType": true,
-        "help": "Your unique Criteo Partner ID. If using several Partner IDs, they need to be sperated by commas.",
+        "help": "Your unique Criteo Partner ID. If using several Partner IDs, they need to be separated by commas or passed in an array.",
         "enablingConditions": [
           {
             "paramName": "partnerType",
@@ -142,6 +142,7 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 
 const log = require('logToConsole');
 const injectScript = require('injectScript');
+const encodeUri = require('encodeUri');
 
 if(data.debug_mode){
   log("--- Criteo Loader Start ---");
@@ -150,12 +151,12 @@ if(data.debug_mode){
 
 var loader_url = "https://dynamic.criteo.com/js/ld/ld.js?";
 if(data.partnerType === "customPartner" && data.applicationName && data.country && data.language)
-  loader_url = loader_url + "an=" + data.applicationName + "&cn=" + data.country + "&ln=" + data.language;
+  loader_url = loader_url + "an=" + encodeUri(data.applicationName + "&cn=" + data.country + "&ln=" + data.language);
 else if (data.partnerId)
-  loader_url = loader_url + "a=" + data.partnerId.toString().replace(" ","");
+  loader_url = loader_url + "a=" + encodeUri(data.partnerId.toString().replace(" ",""));
 
 if(data.visitorId && data.visitorId.length > 0)
-  loader_url = loader_url + "&fpid=" + data.visitorId;
+  loader_url = loader_url + "&fpid=" + encodeUri(data.visitorId);
 
 injectScript(loader_url);
 
