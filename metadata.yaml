@@ -15,5 +15,9 @@
 homepage: "https://www.criteo.com/"
 documentation: "https://github.com/criteo/gtm-criteo-loader/blob/master/README.md"
 versions:
+  - sha: 5d358a13fc68caad41c1ddef2baa1163fe5c4989
+    changeNotes: Minor fixes
+        fixed help message for the Partner ID field
+        encoded the URL parameters of the loader
   - sha: faf167d26e540e48a022615cbd98e3bc4505dd3d
     changeNotes: Initial release
