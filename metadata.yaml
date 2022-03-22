@@ -15,7 +15,7 @@
 homepage: "https://www.criteo.com/"
 documentation: "https://github.com/criteo/gtm-criteo-loader/blob/master/README.md"
 versions:
-  - sha: 648ad99680085cf85d168d9dadee2f515c92f1ab
+  - sha: 56037c7c07fe3fefaad404de9780551abaf1221f
     changeNotes: Updated tag's description
   - sha: 5d358a13fc68caad41c1ddef2baa1163fe5c4989
     changeNotes: Minor fixes
