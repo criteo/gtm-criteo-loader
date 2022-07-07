@@ -15,6 +15,8 @@
 homepage: "https://www.criteo.com/"
 documentation: "https://github.com/criteo/gtm-criteo-loader/blob/master/README.md"
 versions:
+  - sha: bd7efa030bcdda0e0ee5e1274cd05cd698248462
+    changeNotes: Added support for multiple partner IDs
   - sha: 56037c7c07fe3fefaad404de9780551abaf1221f
     changeNotes: Updated tag's description
   - sha: 648ad99680085cf85d168d9dadee2f515c92f1ab
