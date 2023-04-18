@@ -155,14 +155,14 @@ if(data.partnerType === "customPartner" && data.applicationName && data.country 
 else if (data.partnerId){
   if(typeof data.partnerId === "string")
     data.partnerId = data.partnerId.toString().replace(" ","").split(",");
-  
+  else if(typeof data.partnerId === "number")
+    data.partnerId = [data.partnerId];
   
   for(var i = 0; i<data.partnerId.length; i++){
     loader_url += "a=" + encodeUri(data.partnerId[i]);
     if(i<data.partnerId.length-1)
       loader_url += "&";
   }
-    
 }
 
 if(data.visitorId && data.visitorId.length > 0)
@@ -250,6 +250,21 @@ scenarios:
     const mockData = {
       partnerType: "partnerId",
       partnerId: "1234"
+    };
+
+    var loader_url = runCode(mockData);
+    var correct_loader_url = base_url + "a=" + mockData.partnerId;
+
+    assertThat(loader_url).isEqualTo(correct_loader_url);
+
+    // Verify that the tag finished successfully.
+    assertApi('gtmOnSuccess').wasCalled();
+- name: Partner Type is Partner ID - Single Number Partner Id selected - No Visitor
+    ID
+  code: |-
+    const mockData = {
+      partnerType: "partnerId",
+      partnerId: 1234
     };
 
     var loader_url = runCode(mockData);
